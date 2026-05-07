@@ -12,6 +12,8 @@ import {
   Checkbox,
 } from "@primer/react";
 
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+
 const CreateRepo = () => {
   const [repoData, setRepoData] = useState({
     name: "",
@@ -35,7 +37,7 @@ const CreateRepo = () => {
       const userId = localStorage.getItem("userId");
 
       const response = await axios.post(
-        "http://localhost:3002/repo/create",
+        `${BASE_URL}/repo/create`,
         {
           name: repoData.name,
           description: repoData.description,

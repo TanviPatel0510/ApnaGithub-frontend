@@ -4,6 +4,8 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import Navbar from "../Navbar";
 import "./repositoryDetails.css";
 
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+
 const RepositoryDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -17,7 +19,7 @@ const RepositoryDetails = () => {
   const fetchRepository = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3002/repo/${id}`
+        `${BASE_URL}/repo/${id}`
       );
 
       console.log("REPO DATA:", response.data);
@@ -46,7 +48,7 @@ const RepositoryDetails = () => {
 
     try {
       await axios.delete(
-        `http://localhost:3002/repo/delete/${id}`
+        `${BASE_URL}/repo/delete/${id}`
       );
 
       alert("Repository deleted successfully!");
@@ -60,7 +62,7 @@ const RepositoryDetails = () => {
   const handleToggleVisibility = async () => {
     try {
       await axios.patch(
-        `http://localhost:3002/repo/toggle/${id}`
+        `${BASE_URL}/repo/toggle/${id}`
       );
 
       setRepository((prev) => ({

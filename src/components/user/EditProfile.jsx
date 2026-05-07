@@ -12,6 +12,8 @@ import {
 
 import { useNavigate, useParams } from "react-router-dom";
 
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+
 const EditProfile = () => {
 
   const { id } = useParams();
@@ -32,7 +34,7 @@ const EditProfile = () => {
       try {
 
         const response = await axios.get(
-          `http://localhost:3002/userProfile/${id}`
+          `${BASE_URL}/userProfile/${id}`
         );
 
         setUserData({
@@ -68,7 +70,7 @@ const EditProfile = () => {
     try {
 
       const response = await axios.put(
-        `http://localhost:3002/updateProfile/${id}`,
+        `${BASE_URL}/updateProfile/${id}`,
         userData
       );
 

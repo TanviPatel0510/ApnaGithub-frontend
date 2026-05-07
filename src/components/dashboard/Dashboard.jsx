@@ -143,6 +143,8 @@ import "./dashboard.css";
 import Navbar from "../Navbar";
 import { Link } from "react-router-dom";
 
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+
 const Dashboard = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [publicRepositories, setPublicRepositories] = useState([]);
@@ -152,7 +154,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchPublicRepos = async () => {
       try {
-        const response = await fetch("http://localhost:3002/repo/all");
+        const response = await fetch(`${BASE_URL}/repo/all`);
         const data = await response.json();
 
         const publicRepos = Array.isArray(data)

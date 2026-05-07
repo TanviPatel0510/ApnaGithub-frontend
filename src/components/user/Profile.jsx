@@ -1,143 +1,3 @@
-/*import React, { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
-import "./profile.css";
-import Navbar from "../Navbar";
-import { UnderlineNav } from "@primer/react";
-import { BookIcon, RepoIcon } from "@primer/octicons-react";
-import HeatMapProfile from "./HeatMap";
-import { useAuth } from "../../authContext";
-
-const Profile = () => {
-  const navigate = useNavigate();
-  const { id } = useParams();
-  const [userDetails, setUserDetails] = useState({ username: "username" });
-  const { setCurrentUser } = useAuth();
-  const loggedInUserId = localStorage.getItem("userId");
-  const isOwnProfile = loggedInUserId === id;
-
-  useEffect(() => {
-    const fetchUserDetails = async () => {
-
-    const userId = id;
-
-    if (userId) {
-
-      try {
-
-        const response = await axios.get(
-          `http://localhost:3002/userProfile/${userId}`
-        );
-
-        setUserDetails(response.data);
-
-      } catch (err) {
-
-        console.error("Cannot fetch user details: ", err);
-      }
-    }
-  };
-
-  fetchUserDetails();
-
-}, [id]);
-
-  return (
-    <>
-      <Navbar />
-      <UnderlineNav aria-label="Repository">
-        <UnderlineNav.Item
-          aria-current="page"
-          icon={BookIcon}
-          sx={{
-            backgroundColor: "transparent",
-            color: "white",
-            "&:hover": {
-              textDecoration: "underline",
-              color: "white",
-            },
-          }}
-        >
-          Overview
-        </UnderlineNav.Item>
-
-        <UnderlineNav.Item
-          onClick={() => navigate("/repo")}
-          icon={RepoIcon}
-          sx={{
-            backgroundColor: "transparent",
-            color: "whitesmoke",
-            "&:hover": {
-              textDecoration: "underline",
-              color: "white",
-            },
-          }}
-        >
-          Starred Repositories
-        </UnderlineNav.Item>
-      </UnderlineNav>
-
-      <button
-        onClick={() => {
-          localStorage.removeItem("token");
-          localStorage.removeItem("userId");
-          setCurrentUser(null);
-
-          window.location.href = "/auth";
-        }}
-        style={{ position: "fixed", bottom: "50px", right: "50px" }}
-        id="logout"
-      >
-        Logout
-      </button>
-
-      <div className="profile-page-wrapper">
-        <div className="user-profile-section">
-          <div className="profile-image">
-            <img
-              src="https://avatars.githubusercontent.com/u/9919?s=400&v=4"
-              alt="profile"
-            />
-          </div>
-
-          <div className="name">
-            <h3>{userDetails.username}</h3>
-          </div>
-
-          {
-            isOwnProfile ? (
-
-              <Link to={`/updateProfile/${id}`}>
-                <button className="follow-btn">
-                  Edit Profile
-                </button>
-              </Link>
-
-            ) : (
-
-              <button className="follow-btn">
-                Follow
-              </button>
-
-            )
-          }
-
-          <div className="follower">
-            <p>10 Follower</p>
-            <p>3 Following</p>
-          </div>
-        </div>
-
-        <div className="heat-map-section">
-          <HeatMapProfile />
-        </div>
-      </div>
-    </>
-  );
-};
-
-export default Profile;*/
-
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
@@ -147,6 +7,8 @@ import { UnderlineNav } from "@primer/react";
 import { BookIcon, RepoIcon } from "@primer/octicons-react";
 import HeatMapProfile from "./HeatMap";
 import { useAuth } from "../../authContext";
+
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -168,7 +30,7 @@ const Profile = () => {
       if (userId) {
         try {
           const response = await axios.get(
-            `http://localhost:3002/userProfile/${userId}`
+            `${BASE_URL}/userProfile/${userId}`
           );
 
           setUserDetails(response.data);
@@ -186,7 +48,7 @@ const Profile = () => {
     const fetchUserRepos = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3002/repo/user/${id}`
+          `${BASE_URL}/repo/user/${id}`
         );
 
         setRepositories(res.data.repositories);

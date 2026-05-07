@@ -9,6 +9,8 @@ import "./auth.css";
 import logo from "../../assets/github-mark-white.svg";
 import { Link } from "react-router-dom";
 
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+
 const Login = () => {
   // useEffect(() => {
   //   localStorage.removeItem("token");
@@ -26,7 +28,7 @@ const Login = () => {
 
     try {
       setLoading(true);
-      const res = await axios.post("http://localhost:3002/login", {
+      const res = await axios.post(`${BASE_URL}/login`, {
         email: email,
         password: password,
       });
