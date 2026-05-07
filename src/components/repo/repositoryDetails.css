@@ -1,0 +1,87 @@
+.repo-details-container{
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    color: whitesmoke;
+}
+
+.repo-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #30363d;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.repo-header h1{
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.visibility-badge{
+    border: 1px solid #30363d;
+    padding: 5px 12px;
+    border-radius: 20px;
+    color: #8b949e;
+    font-size: 14px;
+}
+
+.repo-actions{
+    display: flex;
+    gap: 12px;
+}
+
+.repo-actions button{
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.toggle-btn{
+    background-color: #21262d;
+    color: white;
+}
+
+.edit-btn{
+    background-color: #238636;
+    color: white;
+}
+
+.delete-btn{
+    background-color: #da3633;
+    color: white;
+}
+
+.repo-description,
+.repo-content,
+.repo-issues{
+    border: 1px solid #30363d;
+    background-color: #161b22;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.repo-description h3,
+.repo-content h3,
+.repo-issues h3{
+    margin-bottom: 15px;
+}
+
+.file-card,
+.issue-card{
+    background-color: #0d1117;
+    border: 1px solid #30363d;
+    padding: 14px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.loading{
+    color: white;
+    text-align: center;
+    margin-top: 100px;
+}

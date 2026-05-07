@@ -1,0 +1,239 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#dashboard {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #0d1117;
+  color: #f0f6fc;
+
+  display: grid;
+  grid-template-columns: 300px 1fr 280px;
+  gap: 28px;
+
+  padding: 30px 40px;
+}
+
+/* SIDEBARS */
+
+#dashboard aside {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  padding: 22px;
+  height: fit-content;
+  position: sticky;
+  top: 90px;
+}
+
+/* HEADINGS */
+
+#dashboard h2,
+#dashboard h3 {
+  color: #f0f6fc;
+  margin-bottom: 22px;
+  font-weight: 700;
+}
+
+#dashboard h2 {
+  font-size: 28px;
+}
+
+#dashboard h3 {
+  font-size: 20px;
+}
+
+/* SEARCH */
+
+#search {
+  margin-bottom: 28px;
+}
+
+#search input {
+  width: 100%;
+  height: 42px;
+  border-radius: 8px;
+  border: 1px solid #30363d;
+  background-color: #0d1117;
+  color: white;
+  padding: 0 15px;
+  font-size: 15px;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+#search input:focus {
+  border-color: #58a6ff;
+  box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.2);
+}
+
+/* MAIN CONTENT */
+
+#dashboard main {
+  width: 100%;
+}
+
+/* REPOSITORY CARDS */
+
+#dashboard main > div:not(#search),
+#dashboard aside > div {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+
+  padding: 20px;
+  margin-bottom: 18px;
+
+  transition: all 0.2s ease;
+}
+
+#dashboard main > div:not(#search):hover,
+#dashboard aside > div:hover {
+  border-color: #58a6ff;
+  transform: translateY(-2px);
+}
+
+.repo-link{
+    text-decoration: none;
+    color: inherit;
+}
+
+.suggested-repo-card{
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.suggested-repo-card:hover{
+    border-color: #58a6ff;
+    transform: translateY(-2px);
+}
+
+.suggested-repo-card h4{
+    color: #58a6ff;
+    margin-bottom: 8px;
+}
+
+.suggested-repo-card p{
+    color: #8b949e;
+    font-size: 14px;
+}
+
+/* REPO TITLE */
+
+#dashboard h4 {
+  color: #58a6ff;
+  font-size: 18px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+#dashboard h4:hover {
+  text-decoration: underline;
+}
+
+/* DESCRIPTION */
+
+#dashboard p {
+  color: #8b949e;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+/* EVENTS LIST */
+
+#dashboard ul {
+  list-style: none;
+}
+
+#dashboard li {
+  padding: 14px 0;
+  border-bottom: 1px solid #30363d;
+}
+
+#dashboard li:last-child {
+  border-bottom: none;
+}
+
+#dashboard li p {
+  color: #c9d1d9;
+}
+
+/* EMPTY STATE */
+
+.empty-message {
+  text-align: center;
+  padding: 40px;
+  border: 1px dashed #30363d;
+  border-radius: 12px;
+  color: #8b949e;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d1117;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #484f58;
+}
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 1200px) {
+  #dashboard {
+    grid-template-columns: 250px 1fr;
+  }
+
+  #dashboard aside:last-child {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  #dashboard {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  #dashboard aside {
+    position: static;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #dashboard {
+    padding: 15px;
+  }
+
+  #dashboard h2 {
+    font-size: 24px;
+  }
+
+  #dashboard h3 {
+    font-size: 18px;
+  }
+
+  #dashboard main > div:not(#search),
+  #dashboard aside > div {
+    padding: 16px;
+  }
+}
