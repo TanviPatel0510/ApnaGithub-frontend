@@ -22,6 +22,7 @@ body {
 }
 
 .repo-header h1 {
+  color: #f0f6fc;
   font-size: 32px;
   margin-bottom: 10px;
   word-break: break-word;

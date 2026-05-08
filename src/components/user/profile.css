@@ -5,7 +5,8 @@
 }
 
 html,
-body {
+body,
+#root {
   background-color: #0d1117;
   overflow-x: hidden;
 }
@@ -19,7 +20,6 @@ body {
   width: 100%;
   background-color: #0d1117;
   color: #f0f6fc;
-  overflow-x: hidden;
 }
 
 /* LEFT PROFILE SECTION */
@@ -67,7 +67,6 @@ body {
 
 .follow-btn {
   width: 100%;
-  max-width: 290px;
   height: 38px;
   border-radius: 8px;
   border: 1px solid #30363d;
@@ -106,7 +105,6 @@ body {
 .heat-map-section {
   width: 100%;
   min-width: 0;
-  overflow-x: hidden;
 }
 
 /* CONTRIBUTION CARD */
@@ -127,9 +125,11 @@ body {
   font-weight: 600;
 }
 
+/* HEATMAP */
+
 .HeatMapProfile {
   width: 100%;
-  overflow-x: auto;
+  overflow-x: scroll;
   overflow-y: hidden;
   padding-bottom: 10px;
 }
@@ -185,7 +185,7 @@ body {
   overflow-wrap: anywhere;
 }
 
-/* Public / Private badge consistency */
+/* Public / Private badge */
 
 .repo p:last-child {
   font-size: 12px;
@@ -204,7 +204,6 @@ body {
   cursor: pointer;
   transition: 0.2s ease;
   width: 100%;
-  max-width: 290px;
 }
 
 #logout:hover {
@@ -264,18 +263,9 @@ body {
     padding: 18px;
   }
 
-  .repo-card-wrapper {
-    grid-template-columns: 1fr;
-  }
-
-  .repo {
-    min-height: auto;
-  }
-
   #logout,
   .follow-btn {
     width: 100%;
-    max-width: 100%;
   }
 }
 
