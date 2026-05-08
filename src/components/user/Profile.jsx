@@ -104,7 +104,6 @@ const Profile = () => {
 
           window.location.href = "/auth";
         }}
-        style={{ position: "fixed", bottom: "50px", right: "50px" }}
         id="logout"
       >
         Logout

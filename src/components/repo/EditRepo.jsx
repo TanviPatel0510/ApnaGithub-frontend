@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import "./editRepo.css";
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const EditRepo = () => {
 
@@ -23,7 +24,7 @@ const EditRepo = () => {
     try {
 
       const response = await axios.get(
-        `${import.meta.env.VITE_BASE_URL}/repo/update/${id}`
+        `${BASE_URL}/repo/${id}`
       );
 
       const repo = response.data[0];
@@ -50,7 +51,7 @@ const EditRepo = () => {
     try {
 
       await axios.put(
-        `${import.meta.env.VITE_API_BASE_URL}/repo/${id}`,
+        `${BASE_URL}/repo/update/${id}`,
         {
           name,
           description,

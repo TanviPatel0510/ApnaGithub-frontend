@@ -53,11 +53,10 @@ const HeatMapProfile = () => {
       <HeatMap
         className="HeatMapProfile"
         style={{
-                width: "100%",
-                minWidth: "900px",
-                height: "220px",
-                color: "white",
-              }}
+          width: "900px",
+          height: "220px",
+          color: "white",
+        }}
         value={activityData}
         weekLabels={["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]}
         startDate={new Date("2001-01-01")}

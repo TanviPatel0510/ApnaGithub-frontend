@@ -15,14 +15,12 @@ body,
   display: grid;
   grid-template-columns: 320px 1fr;
   gap: 40px;
-  padding: 30px 60px;
+  padding: 30px 60px 80px;
   min-height: 100vh;
   width: 100%;
   background-color: #0d1117;
   color: #f0f6fc;
 }
-
-/* LEFT PROFILE SECTION */
 
 .user-profile-section {
   width: 100%;
@@ -41,7 +39,6 @@ body,
   border: 1px solid #30363d;
   background-color: #161b22;
   margin-bottom: 20px;
-  flex-shrink: 0;
 }
 
 .profile-image img {
@@ -62,7 +59,6 @@ body,
   margin-bottom: 8px;
   text-align: center;
   word-break: break-word;
-  overflow-wrap: anywhere;
 }
 
 .follow-btn {
@@ -75,12 +71,6 @@ body,
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: 0.2s ease;
-}
-
-.follow-btn:hover {
-  background-color: #30363d;
-  border: 1px solid #8b949e;
 }
 
 .follower {
@@ -92,22 +82,10 @@ body,
   flex-wrap: wrap;
 }
 
-.follower p {
-  cursor: pointer;
-}
-
-.follower p:hover {
-  color: #58a6ff;
-}
-
-/* RIGHT SECTION */
-
 .heat-map-section {
   width: 100%;
   min-width: 0;
 }
-
-/* CONTRIBUTION CARD */
 
 .heat-map-section > div {
   border: 1px solid #30363d;
@@ -122,24 +100,21 @@ body,
   font-size: 18px;
   margin-bottom: 25px;
   color: #f0f6fc;
-  font-weight: 600;
 }
-
-/* HEATMAP */
 
 .HeatMapProfile {
-  width: 100%;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  padding-bottom: 10px;
+  display: block;
 }
 
-/* REPOSITORY SECTION */
+.heat-map-section > div:first-child {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
 
 .repo-card-wrapper {
   margin-top: 30px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 20px;
   width: 100%;
 }
@@ -147,13 +122,14 @@ body,
 .repo {
   border: 1px solid #30363d;
   border-radius: 12px;
-  padding: 18px;
+  padding: 20px;
   background-color: #161b22;
-  transition: all 0.2s ease;
-  min-height: 150px;
+  min-height: 170px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 14px;
+  transition: 0.2s ease;
 }
 
 .repo:hover {
@@ -165,34 +141,18 @@ body,
   color: #58a6ff;
   font-size: 18px;
   font-weight: 600;
-  cursor: pointer;
   margin-bottom: 10px;
   text-decoration: none;
   word-break: break-word;
-  overflow-wrap: anywhere;
   line-height: 1.4;
-}
-
-.repo-name:hover {
-  text-decoration: underline;
 }
 
 .description {
   color: #8b949e;
-  line-height: 1.5;
-  font-size: 13px;
+  line-height: 1.7;
+  font-size: 14px;
   word-break: break-word;
-  overflow-wrap: anywhere;
 }
-
-/* Public / Private badge */
-
-.repo p:last-child {
-  font-size: 12px;
-  margin-top: 10px;
-}
-
-/* LOGOUT BUTTON */
 
 #logout {
   background-color: #da3633;
@@ -202,21 +162,19 @@ body,
   border-radius: 10px;
   font-weight: 600;
   cursor: pointer;
-  transition: 0.2s ease;
-  width: 100%;
+  width: fit-content;
+  min-width: 140px;
+  margin-top: 22px;
 }
 
 #logout:hover {
   background-color: #f85149;
-  transform: scale(1.03);
 }
-
-/* RESPONSIVE */
 
 @media screen and (max-width: 1000px) {
   .profile-page-wrapper {
     grid-template-columns: 1fr;
-    padding: 25px 20px;
+    padding: 25px 20px 60px;
   }
 
   .user-profile-section {
@@ -229,49 +187,15 @@ body,
     height: 180px;
   }
 
-  .name {
-    text-align: center;
-  }
-
   .follower {
     justify-content: center;
   }
 }
 
-@media screen and (max-width: 768px) {
-  .profile-page-wrapper {
-    grid-template-columns: 1fr;
-    padding: 24px 16px;
-    gap: 28px;
-  }
-
-  .user-profile-section {
-    position: static;
-    align-items: center;
-  }
-
-  .profile-image {
-    width: 170px;
-    height: 170px;
-  }
-
-  .name h3 {
-    font-size: 24px;
-  }
-
-  .heat-map-section > div {
-    padding: 18px;
-  }
-
-  #logout,
-  .follow-btn {
-    width: 100%;
-  }
-}
-
 @media screen and (max-width: 480px) {
   .profile-page-wrapper {
-    padding: 18px 12px;
+    padding: 20px 12px 50px;
+    gap: 24px;
   }
 
   .profile-image {
@@ -283,23 +207,27 @@ body,
     font-size: 22px;
   }
 
-  .heat-map-section > div {
-    padding: 14px;
+  .heat-map-section > div:first-child {
+    display: none;
   }
 
   .repo-card-wrapper {
+    margin-top: 0;
+    grid-template-columns: 1fr;
     gap: 14px;
+  }
+
+  .follow-btn{
+    padding: 10px 20px;
+    width: 100%;
   }
 
   .repo {
     padding: 14px;
+    min-height: auto;
   }
 
-  .repo-name {
-    font-size: 16px;
-  }
-
-  .description {
-    font-size: 12px;
+  #logout {
+    width: 100%;
   }
 }
