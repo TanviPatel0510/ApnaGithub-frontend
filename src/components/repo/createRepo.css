@@ -25,6 +25,7 @@
   font-size: 34px;
   margin-bottom: 10px;
   font-weight: 700;
+  color: #f0f6fc;
 }
 
 .repo-heading p {
@@ -70,6 +71,12 @@
   box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.2);
 }
 
+.repo-form input:-webkit-autofill,
+.repo-form textarea:-webkit-autofill {
+  -webkit-text-fill-color: white !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 .visibility-section {
   border-top: 1px solid #30363d;
   padding-top: 25px;
@@ -77,6 +84,7 @@
 
 .visibility-section h3 {
   margin-bottom: 18px;
+  color: #f0f6fc;
 }
 
 .checkbox-container {
@@ -121,5 +129,38 @@
 
   .repo-heading h1 {
     font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #create-repo-page {
+    padding: 24px 14px;
+  }
+
+  .repo-heading {
+    margin-bottom: 24px;
+  }
+
+  .repo-heading h1 {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  .repo-heading p {
+    font-size: 14px;
+  }
+
+  .repo-form {
+    padding: 18px;
+    gap: 22px;
+  }
+
+  .checkbox-container {
+    padding: 14px;
+    gap: 12px;
+  }
+
+  .create-btn {
+    width: 100%;
   }
 }

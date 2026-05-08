@@ -116,11 +116,12 @@ const RepositoryDetails = () => {
                 Toggle Visibility
               </button>
 
-              <Link to={`/repo/update/${repository._id}`}>
-                <button className="edit-btn">
-                  Edit Repository
-                </button>
-              </Link>
+              <button
+                onClick={() => navigate(`/repo/edit/${repository._id}`)}
+                className="edit-btn"
+              >
+                Edit Repository
+              </button>
 
               <button
                 onClick={handleDelete}

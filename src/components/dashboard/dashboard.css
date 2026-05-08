@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 #dashboard {
   width: 100%;
   min-height: 100vh;
@@ -235,5 +240,44 @@
   #dashboard main > div:not(#search),
   #dashboard aside > div {
     padding: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #dashboard {
+    padding: 12px;
+    gap: 16px;
+  }
+
+  #dashboard aside {
+    padding: 16px;
+    border-radius: 10px;
+  }
+
+  #search input {
+    height: 40px;
+    font-size: 14px;
+  }
+
+  #dashboard h2 {
+    font-size: 22px;
+  }
+
+  #dashboard h3 {
+    font-size: 17px;
+  }
+
+  #dashboard h4 {
+    font-size: 16px;
+    word-break: break-word;
+  }
+
+  #dashboard p {
+    font-size: 13px;
+    word-break: break-word;
+  }
+
+  .empty-message {
+    padding: 24px 14px;
   }
 }

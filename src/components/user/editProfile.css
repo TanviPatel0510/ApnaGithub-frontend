@@ -10,6 +10,7 @@
   justify-content: center;
 
   padding: 50px 20px;
+  overflow-x: hidden;
 }
 
 .edit-profile-container {
@@ -24,11 +25,14 @@
 .edit-heading h1 {
   font-size: 34px;
   margin-bottom: 10px;
+  color: #f0f6fc;
+  word-break: break-word;
 }
 
 .edit-heading p {
   color: #8b949e;
   font-size: 15px;
+  line-height: 1.6;
 }
 
 .edit-profile-form {
@@ -52,6 +56,7 @@
   border: 2px solid #30363d;
 
   margin: 0 auto 10px auto;
+  flex-shrink: 0;
 }
 
 .avatar-preview img {
@@ -77,6 +82,7 @@
   border: 1px solid #30363d !important;
   color: white !important;
   border-radius: 8px !important;
+  width: 100%;
 }
 
 .edit-profile-form input:focus,
@@ -85,17 +91,60 @@
   box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.2);
 }
 
+.edit-profile-form input:-webkit-autofill,
+.edit-profile-form textarea:-webkit-autofill {
+  -webkit-text-fill-color: white !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 .save-btn {
   width: fit-content;
   font-weight: 600 !important;
 }
 
 @media screen and (max-width: 768px) {
+  #edit-profile-page {
+    padding: 32px 16px;
+  }
+
   .edit-profile-form {
     padding: 22px;
   }
 
   .edit-heading h1 {
     font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #edit-profile-page {
+    padding: 24px 14px;
+  }
+
+  .edit-heading {
+    margin-bottom: 24px;
+  }
+
+  .edit-heading h1 {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  .edit-heading p {
+    font-size: 14px;
+  }
+
+  .edit-profile-form {
+    padding: 18px;
+    gap: 22px;
+  }
+
+  .avatar-preview {
+    width: 110px;
+    height: 110px;
+  }
+
+  .save-btn {
+    width: 100%;
   }
 }

@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  background-color: #0d1117;
+  overflow-x: hidden;
+}
+
 .profile-page-wrapper {
   display: grid;
   grid-template-columns: 320px 1fr;
@@ -13,6 +19,7 @@
   width: 100%;
   background-color: #0d1117;
   color: #f0f6fc;
+  overflow-x: hidden;
 }
 
 /* LEFT PROFILE SECTION */
@@ -34,6 +41,7 @@
   border: 1px solid #30363d;
   background-color: #161b22;
   margin-bottom: 20px;
+  flex-shrink: 0;
 }
 
 .profile-image img {
@@ -44,6 +52,7 @@
 
 .name {
   margin-bottom: 15px;
+  width: 100%;
 }
 
 .name h3 {
@@ -52,10 +61,13 @@
   color: #f0f6fc;
   margin-bottom: 8px;
   text-align: center;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .follow-btn {
   width: 100%;
+  max-width: 290px;
   height: 38px;
   border-radius: 8px;
   border: 1px solid #30363d;
@@ -78,6 +90,7 @@
   margin-top: 18px;
   color: #8b949e;
   font-size: 14px;
+  flex-wrap: wrap;
 }
 
 .follower p {
@@ -93,6 +106,7 @@
 .heat-map-section {
   width: 100%;
   min-width: 0;
+  overflow-x: hidden;
 }
 
 /* CONTRIBUTION CARD */
@@ -116,17 +130,18 @@
 .HeatMapProfile {
   width: 100%;
   overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 10px;
 }
 
-/* ========================================= */
-/* ✅ NEW: REPOSITORY SECTION (ADDED CLEANLY) */
-/* ========================================= */
+/* REPOSITORY SECTION */
 
 .repo-card-wrapper {
   margin-top: 30px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 20px;
+  width: 100%;
 }
 
 .repo {
@@ -153,6 +168,9 @@
   cursor: pointer;
   margin-bottom: 10px;
   text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  line-height: 1.4;
 }
 
 .repo-name:hover {
@@ -163,9 +181,12 @@
   color: #8b949e;
   line-height: 1.5;
   font-size: 13px;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 /* Public / Private badge consistency */
+
 .repo p:last-child {
   font-size: 12px;
   margin-top: 10px;
@@ -182,6 +203,8 @@
   font-weight: 600;
   cursor: pointer;
   transition: 0.2s ease;
+  width: 100%;
+  max-width: 290px;
 }
 
 #logout:hover {
@@ -213,5 +236,80 @@
 
   .follower {
     justify-content: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .profile-page-wrapper {
+    grid-template-columns: 1fr;
+    padding: 24px 16px;
+    gap: 28px;
+  }
+
+  .user-profile-section {
+    position: static;
+    align-items: center;
+  }
+
+  .profile-image {
+    width: 170px;
+    height: 170px;
+  }
+
+  .name h3 {
+    font-size: 24px;
+  }
+
+  .heat-map-section > div {
+    padding: 18px;
+  }
+
+  .repo-card-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .repo {
+    min-height: auto;
+  }
+
+  #logout,
+  .follow-btn {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .profile-page-wrapper {
+    padding: 18px 12px;
+  }
+
+  .profile-image {
+    width: 140px;
+    height: 140px;
+  }
+
+  .name h3 {
+    font-size: 22px;
+  }
+
+  .heat-map-section > div {
+    padding: 14px;
+  }
+
+  .repo-card-wrapper {
+    gap: 14px;
+  }
+
+  .repo {
+    padding: 14px;
+  }
+
+  .repo-name {
+    font-size: 16px;
+  }
+
+  .description {
+    font-size: 12px;
   }
 }

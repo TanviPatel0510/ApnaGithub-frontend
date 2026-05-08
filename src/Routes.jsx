@@ -12,6 +12,7 @@ import { useAuth } from './authContext';
 import CreateRepo from './components/repo/CreateRepo';
 import EditProfile from './components/user/EditProfile';
 import RepositoryDetails from './components/repo/RepositoryDetails';
+import EditRepo from './components/repo/EditRepo';
 
 const ProjectRoutes = () => {
     const { currentUser, setCurrentUser } = useAuth();
@@ -61,6 +62,10 @@ const ProjectRoutes = () => {
         {
             path: "/repo/:id",
             element: <RepositoryDetails />
+        },
+        {
+            path: "/repo/edit/:id",
+            element: <EditRepo />
         }
     ]);
 
