@@ -115,10 +115,10 @@ const CreateRepo = () => {
                 />
 
                 <div>
-                  <h4>Private</h4>
+                  <h4>Public</h4>
 
                   <p>
-                    Only you can see this repository.
+                    Anyone can see this repository.
                   </p>
                 </div>
 
