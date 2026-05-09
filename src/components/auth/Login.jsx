@@ -7,7 +7,7 @@ import { Box, Button } from "@primer/react";
 import "./auth.css";
 
 import logo from "../../assets/github-mark-white.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
@@ -18,6 +18,7 @@ const Login = () => {
   //   setCurrentUser(null);
   // });
 
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -39,7 +40,7 @@ const Login = () => {
       setCurrentUser(res.data.userId);
       setLoading(false);
 
-      window.location.href = "/";
+      navigate("/", { replace: true });
     } catch (err) {
       console.error(err);
       alert("Login Failed!");

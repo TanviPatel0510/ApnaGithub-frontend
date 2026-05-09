@@ -102,7 +102,7 @@ const Profile = () => {
           localStorage.removeItem("userId");
           setCurrentUser(null);
 
-          window.location.href = "/auth";
+          navigate("/auth", { replace: true });
         }}
         id="logout"
       >
